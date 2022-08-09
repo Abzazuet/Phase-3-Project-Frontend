@@ -1,0 +1,4 @@
+.color-nav {
+  background-color: var(--navBackground) !important;
+  color: white !important;
+}

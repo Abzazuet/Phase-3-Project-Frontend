@@ -1,0 +1,9 @@
+.background-fix{
+    background: linear-gradient(0deg, rgba(0 0 0 / 0.5), rgba(255 0 150 / 69%));
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 0;
+    bottom: 10rem;
+    border-radius: 1rem;
+}

@@ -1,13 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;500;600;700;800;900&display=swap");
+:root {
+  --background: #ffcdb2;
+  --navBackground: #d83bd8;
+  --font-color: #141414;
+  --card-background: #e5989b;
+  --shadow: #ffb4a2;
+  --hover-color: #b5838d;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--font-color);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 3rem;
+}
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-weight: 500;
+  font-size: 2rem;
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+}
+img{
+  border-radius: 1rem;
 }
