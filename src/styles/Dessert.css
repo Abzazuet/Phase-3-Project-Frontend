@@ -1,20 +1,20 @@
 .card-style {
-  margin: .5rem auto;
-  border-radius: 1rem;
+  margin: .5rem auto !important;
+  border-radius: 1rem !important;
   background: rgb(216, 59, 216);
   background: linear-gradient(
     104deg,
     rgba(216, 59, 216, 1) 0%,
     #e5989b 100%
-  );
-  box-shadow: .5rem 0 1rem #000;
-  transition: 0.4s ease-out;
+  ) !important;
+  box-shadow: .5rem 0 1rem #000 !important;
+  transition: 0.4s ease-out !important;
 }
 .card-style:hover {
   transform: translateY(-20px);
 }
 .card-style img {
-  margin: 10px auto;
+  margin: 10px auto !important;
 }
 .subtitle {
   color: white;
@@ -22,5 +22,10 @@
 .btn {
   background-color: var(--navBackground);
   border: none;
-  margin: auto auto;
+}
+.MuiCollapse-root{
+  transform:  translateY(-15%);
+}
+.MuiCardActions-root{
+  transform:  translateY(-15%);
 }

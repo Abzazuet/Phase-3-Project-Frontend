@@ -1,4 +1,13 @@
-.color-nav {
+.MuiList-root{
   background-color: var(--navBackground) !important;
   color: white !important;
+}
+.MuiPaper-root{
+  background-color: var(--navBackground) !important;
+}
+a:hover{
+  color: black;
+}
+.MuiButton-root:hover{
+  background-color: black !important;
 }

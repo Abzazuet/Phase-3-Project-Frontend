@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import "../styles/TopNavbar.css";
 import { Link } from "react-router-dom"
 
-const pagesRoutes = ['home', 'about', 'desserts']
+const pagesRoutes = ['home', 'about', 'desserts', 'cart']
 const settings = ['Add', 'Delete', 'Update'];
 
 const TopNavbar = () => {
@@ -38,7 +38,7 @@ const TopNavbar = () => {
   };
 
   return (
-    <AppBar position="static" className='color-nav'>
+    <AppBar position="static">
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -90,7 +90,7 @@ const TopNavbar = () => {
               }}
             >
               {pagesRoutes.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} className="color-nav">
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
                     <Link style={{ textDecoration: "none", color: "white"}} to={`/${page}`} >
                       {page.toUpperCase()}
@@ -157,7 +157,7 @@ const TopNavbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu} className="color-nav">
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}
                     <Link style={{ textDecoration: "none", color: "white" }} to={`/${setting.toLowerCase()}Dessert`}>
                       <span> Dessert</span>

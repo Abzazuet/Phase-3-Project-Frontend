@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
+import '../styles/Login.css'
 import { useState } from "react";
 function Login({ setLoggedIn, adminLogged }) {
   const [logData, setLogData] = useState({ login: '', password: '' });

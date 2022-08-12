@@ -4,6 +4,7 @@ import Desserts from "./Desserts";
 import AddDessert from "./AddDessert";
 import DeleteDessert from "./DeleteDessert";
 import UpdateDessert from "./UpdateDessert";
+import Cart from "./Cart";
 import Login from "./Login";
 import AboutUs from "./AboutUs";
 import { Route, Routes } from "react-router-dom";
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
         <TopNavbar adminLogged={adminLogged} setAdminLogged={setAdminLogged} />
+        
         <Routes>
         <Route exact path="/" element={<Home />} />
           <Route exact path="/home" element={<Home />} />
@@ -43,6 +45,11 @@ function App() {
             exact
             path="updateDessert"
             element={<UpdateDessert desserts={desserts} />}
+          />
+          <Route
+            exact
+            path="cart"
+            element={<Cart />}
           />
         </Routes>
     </div>

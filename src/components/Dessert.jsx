@@ -1,60 +1,87 @@
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import "../styles/Dessert.css";
-function Dessert({ dessert }) {
-  const [showIngredient, setShowIngredient] = useState(false);
-  function handleClick() {
-    setShowIngredient(!showIngredient);
-  }
 
-  if (!showIngredient) {
-    return (
-      <Card style={{ width: "18rem" }} className="card-style">
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>{dessert.name}</Card.Title>
-          <Card.Subtitle className="mb-2 subtitle">
-            Macronutrients
-          </Card.Subtitle>
-          <span>Carbohydrates: {dessert.carbohydrates} g</span> <br />
-          <span>Proteins: {dessert.proteins} g</span> <br />
-          <span>Fat: {dessert.fat} g</span> <br />
-          <Card.Subtitle className="mb-1 subtitle mt-2">
-            Food regimes
-          </Card.Subtitle>
-          <Card.Text>
-            {dessert.regimes.map((regime) => (
-              <span key={regime}>*{regime} </span>
-            ))}
-          </Card.Text>
-          <Button variant="primary" className="btn" onClick={handleClick}>
-            Ingredients
-          </Button>
-        </Card.Body>
-      </Card>
-    );
-  } else {
-    return (
-      <Card style={{ width: "18rem" }} className="card-style">
-        <Card.Img variant="top" src="holder.js/100px180" />
-        <Card.Body>
-          <Card.Title>{dessert.name}</Card.Title>
-          <Card.Subtitle className="mb-2 subtitle">Ingredients</Card.Subtitle>
-          <Card.Text>
-            {dessert.ingredients.map((ingredient) => (
-              <span key={ingredient}>
-                {ingredient} <br />
-              </span>
-            ))}
-          </Card.Text>
 
-          <Button variant="primary" className="btn" onClick={handleClick}>
-            Nutrition
-          </Button>
-        </Card.Body>
-      </Card>
+const ExpandMore = styled((props) => {
+    const { expand, ...other } = props;
+    return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+    }),
+}));
+
+export default function Dessert({ dessert }) {
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleExpandClick = () => {
+        setExpanded(!expanded);
+    };
+
+    return (
+        <Card sx={{ maxWidth: 345, maxHeight: 650 }} className="card-style">
+            <CardHeader
+                title={dessert.name}
+            />
+            <CardMedia
+                component="img"
+                height="194"
+                image={dessert.image}
+                alt={dessert.name}
+            />
+            <CardContent>
+                <Typography variant="body1" className="subtitle">Food regimes:</Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {dessert.regimes.map((regime) => (
+                        <span key={regime}>*{regime.toUpperCase()} </span>
+                    ))}
+                </Typography>
+            </CardContent>
+            <CardActions disableSpacing>
+                <IconButton aria-label="add to cart">
+                    <AddShoppingCartIcon fontSize='large' />
+                </IconButton>
+                <ExpandMore
+                    expand={expanded}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                >
+                    <RemoveRedEyeIcon fontSize='large' />
+                </ExpandMore>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                <CardContent>
+                    <Typography paragraph className="subtitle">Ingredients: </Typography>
+                    <Typography paragraph>
+                        {dessert.ingredients.map((ingredient) => (
+                            <span key={ingredient}>
+                                {ingredient} <br />
+                            </span>
+                        ))}
+                    </Typography>
+                    <Typography paragraph className="subtitle">Macronutrients</Typography>
+                    <Typography paragraph>
+                        <span>Carbohydrates: {dessert.carbohydrates} g</span> <br />
+                        <span>Proteins: {dessert.proteins} g</span> <br />
+                        <span>Fat: {dessert.fat} g</span> <br />
+                        {console.log(dessert)}
+                    </Typography>
+                </CardContent>
+            </Collapse>
+        </Card>
     );
-  }
 }
-export default Dessert;
