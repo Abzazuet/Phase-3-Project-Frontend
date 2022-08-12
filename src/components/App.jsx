@@ -10,48 +10,52 @@ import AboutUs from "./AboutUs";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "../styles/App.css";
+import { CssBaseline } from "@mui/material";
+import Container from '@mui/material/Container';
+
 
 function App() {
   const [adminLogged, setAdminLogged] = useState(false);
   const [desserts, setDesserts] = useState([]);
 
   return (
-    <div className="App">
-        <TopNavbar adminLogged={adminLogged} setAdminLogged={setAdminLogged} />
-        
-        <Routes>
-        <Route exact path="/" element={<Home />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/about" element={<AboutUs />} />
+    <div className="App background">
+      <TopNavbar adminLogged={adminLogged} setAdminLogged={setAdminLogged} />
+      <CssBaseline />
+      <Container className="content">
+        <Routes >
+          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route
-            exact
-            path="desserts"
+            path="/desserts"
             element={<Desserts desserts={desserts} setDesserts={setDesserts} />}
           />
           <Route
-            exact
-            path="login"
+            path="/login"
             element={
               <Login setLoggedIn={setAdminLogged} adminLogged={adminLogged} />
             }
           />
-          <Route exact path="addDessert" element={<AddDessert />} />
           <Route
-            exact
-            path="deleteDessert"
+            path="/addDessert"
+            element={<AddDessert/>} />
+          <Route
+            path="/deleteDessert"
             element={<DeleteDessert desserts={desserts} />}
           />
           <Route
-            exact
-            path="updateDessert"
+            path="/updateDessert"
             element={<UpdateDessert desserts={desserts} />}
           />
           <Route
-            exact
-            path="cart"
+
+            path="/cart"
             element={<Cart />}
           />
         </Routes>
+      </Container>
+
     </div>
   );
 }

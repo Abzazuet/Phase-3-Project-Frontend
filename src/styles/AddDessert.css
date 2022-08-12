@@ -1,7 +1,7 @@
 .form {
   max-width: 70%;
   margin: 0 auto;
-  background-color: var(--card-background);
+  background-color: var(--card-background) !important;
   padding: 1rem;
   border-radius: 1rem;
   text-align: left;

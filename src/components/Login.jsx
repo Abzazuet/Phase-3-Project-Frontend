@@ -38,7 +38,7 @@ function Login({ setLoggedIn, adminLogged }) {
     }
   }
   return (
-    <div className="background">
+    <div>
       <div className="phrase-container">
         <h1>Administrator login</h1>
       </div>
@@ -66,7 +66,7 @@ function Login({ setLoggedIn, adminLogged }) {
             value={logData.password}
           />
           <p>This form is used to validate Admin login and enable editing functions</p>
-          <Button variant="contained" style={{background:'#d83bd8' }} type="submit">{adminLogged ? "Log out" : "Log in"}</Button>
+          <Button variant="contained" style={{background:'#d83bd8'}} type="submit">{adminLogged ? "Log out" : "Log in"}</Button>
 
         </div>
       </Box>

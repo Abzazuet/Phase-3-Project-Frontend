@@ -3,7 +3,7 @@ import Testimonials from "./Testimonials";
 
 function Home() {
   return (
-    <div className="background">
+    <div>
       <div className="phrase-container">
         <h1>Mardaf</h1>
         <h2>

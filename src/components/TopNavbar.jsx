@@ -38,7 +38,7 @@ const TopNavbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -92,7 +92,7 @@ const TopNavbar = () => {
               {pagesRoutes.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link style={{ textDecoration: "none", color: "white"}} to={`/${page}`} >
+                    <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`} >
                       {page.toUpperCase()}
                     </Link>
                   </Typography>
@@ -125,7 +125,7 @@ const TopNavbar = () => {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-                
+
               >
                 <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
                   {page}
@@ -166,12 +166,12 @@ const TopNavbar = () => {
                 </MenuItem>
               ))}
               <MenuItem onClick={handleCloseUserMenu} className="color-nav">
-                  <Typography textAlign="center">{}
-                    <Link style={{ textDecoration: "none", color: "white" }} to='/login'>
-                      Login
-                    </Link>
-                  </Typography>
-                </MenuItem>
+                <Typography textAlign="center">{ }
+                  <Link style={{ textDecoration: "none", color: "white" }} to='/login'>
+                    Login
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

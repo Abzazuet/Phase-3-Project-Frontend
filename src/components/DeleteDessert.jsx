@@ -1,8 +1,8 @@
 import DisplayDessertsDropdown from "./DisplayDessertsDropdown";
-function DeleteDessert({desserts}){
-    return(
-        <div className="background">
-            <DisplayDessertsDropdown desserts={desserts}/>
+function DeleteDessert({ desserts }) {
+    return (
+        <div>
+            <DisplayDessertsDropdown desserts={desserts} />
         </div>
     )
 

@@ -1,7 +1,7 @@
 
 function AboutUs() {
   return (
-    <div className="background">
+    <div>
       <div className="phrase-container">
         <h1>Conocenos mas</h1>
         <h2>100% mexican company</h2>

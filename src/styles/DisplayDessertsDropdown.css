@@ -1,5 +1,13 @@
 .menu{
     width: 80%;
     margin: 0 auto;
-    background-color: var(--background);
+    background-color: var(--background) !important;
+    border-radius: 1rem;
+}
+.MuiInputLabel-root{
+    color: black !important;
+
+}
+.dessert-title{
+    font-size: 1.4rem !important;
 }

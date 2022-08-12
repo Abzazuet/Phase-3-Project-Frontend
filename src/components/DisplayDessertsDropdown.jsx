@@ -1,21 +1,28 @@
-import { Form } from "react-bootstrap";
 import "../styles/DisplayDessertsDropdown.css";
 import { useState } from "react";
 import FormDessert from "./FormDesserts";
 import { useNavigate } from "react-router-dom";
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+
+
+
 function DisplayDessertsDropdown({ desserts, fetchRequest }) {
   const navigate = useNavigate();
   const [selectedDessert, setSelectedDessert] = useState([]);
   function handleDessert(event) {
+    console.log(selectedDessert[0])
     setSelectedDessert(
-      desserts.filter((dessert) => dessert.name === event.target.value)
+      desserts.filter((dessert) => dessert.name === event.target.value.name)
     );
   }
   let requestType = fetchRequest === "update" ? "PUT" : "DELETE";
   function fetchFunction(e, params) {
     e.preventDefault();
     fetch(
-      `https://immense-garden-31850.herokuapp.com/desserts/${selectedDessert[0].id}`,
+      `https://desolate-taiga-53492.herokuapp.com/desserts/${selectedDessert[0].id}`,
       {
         method: requestType,
         body: JSON.stringify(params),
@@ -30,22 +37,33 @@ function DisplayDessertsDropdown({ desserts, fetchRequest }) {
   }
   return (
     <div>
-      <Form.Select
-        aria-label="Default select example"
-        className="menu"
-        size="lg"
-        onChange={handleDessert}
-      >
-        <option>Select dessert</option>
-        {desserts.map((dessert) => (
-          <option key={dessert.id}>{dessert.name}</option>
-        ))}
-      </Form.Select>
+      <FormControl className="menu">
+        <InputLabel id="demo-simple-select-label" className="dessert-title">Select Dessert</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          defaultValue="none"
+          value={selectedDessert.name}
+          onChange={handleDessert}
+          label="SelectedDessert"
+        >
+          <MenuItem value="none"></MenuItem>
+          {desserts.map((dessert) => (
+            <MenuItem key={dessert.id}
+              value={dessert}>{dessert.name}</MenuItem>
+          ))}
+
+        </Select>
+      </FormControl>
       <FormDessert
         selectedDessert={selectedDessert}
         fetchRequest={fetchFunction}
       />
+
+
     </div>
+
   );
 }
 export default DisplayDessertsDropdown;
+

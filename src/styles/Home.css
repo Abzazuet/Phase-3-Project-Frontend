@@ -1,11 +1,10 @@
 .background {
   background: linear-gradient(0deg, rgba(0 0 0 / 0.5), rgba(255 0 150 / 69%)),
-    url(../img/background.jpeg);
+    url(../img/background.jpeg) !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
-  padding: 1rem 0;
   min-height: 100vh;
 }
 

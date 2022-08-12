@@ -1,0 +1,10 @@
+.form, .margin-button{
+    margin: 15px auto !important;
+}
+.MuiInputBase-input .form{
+    background-color: white !important;
+}
+.form-input-background{
+    background-color: white !important;
+    border-radius: 1rem;
+}

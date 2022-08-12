@@ -1,5 +1,7 @@
 import FormDesserts from "./FormDesserts";
-import "../styles/AddDessert.css";
+import "../styles/Home.css";
+
+
 function AddDessert() {
   function fetchAdd(e, params) {
     e.preventDefault();
@@ -11,6 +13,10 @@ function AddDessert() {
       },
     }).then((response) => window.alert("Dessert added"));
   }
-  return <FormDesserts fetchRequest={fetchAdd} />;
+  return (
+    <div>
+      <FormDesserts fetchRequest={fetchAdd}/>;
+    </div>
+  )
 }
 export default AddDessert;
