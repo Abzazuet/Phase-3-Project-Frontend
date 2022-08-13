@@ -24,15 +24,14 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Dessert({ dessert, handleDessertInCart, dessertsInCart }) {
+export default function Dessert({ dessert, handleDessertInCart }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
-    const handleClick = (event) =>{
+    const handleClick = () =>{
         handleDessertInCart(dessert)
-        console.log(dessertsInCart)
     }
 
     return (

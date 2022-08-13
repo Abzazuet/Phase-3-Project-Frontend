@@ -25,12 +25,13 @@ code {
 h1 {
   font-family: "Dancing Script", cursive;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 4rem !important;
+  color: #ffb4a2;
 }
 h2 {
   font-family: "Dancing Script", cursive;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 3rem !important;
 }
 p {
   font-family: "Poppins", sans-serif;

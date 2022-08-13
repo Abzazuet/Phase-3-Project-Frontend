@@ -11,8 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import "../styles/TopNavbar.css";
+import Cake from '@mui/icons-material/Cake'; import "../styles/TopNavbar.css";
 import { Link } from "react-router-dom"
 
 const pagesRoutes = ['home', 'about', 'desserts', 'cart']
@@ -41,7 +40,7 @@ const TopNavbar = () => {
     <AppBar >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Cake sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -90,17 +89,17 @@ const TopNavbar = () => {
               }}
             >
               {pagesRoutes.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`} >
+                <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`} >
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">
                       {page.toUpperCase()}
-                    </Link>
-                  </Typography>
-                </MenuItem>
+                    </Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <Cake sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -121,16 +120,15 @@ const TopNavbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pagesRoutes.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-
-              >
-                <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+              <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
                   {page}
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -157,21 +155,21 @@ const TopNavbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}
-                    <Link style={{ textDecoration: "none", color: "white" }} to={`/${setting.toLowerCase()}Dessert`}>
+                <Link style={{ textDecoration: "none", color: "white" }} to={`/${setting.toLowerCase()}Dessert`}>
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}
                       <span> Dessert</span>
-                    </Link>
+                    </Typography>
+                  </MenuItem>
+                </Link>
+              ))}
+              <Link style={{ textDecoration: "none", color: "white" }} to='/login'>
+                <MenuItem onClick={handleCloseUserMenu} className="color-nav">
+                  <Typography textAlign="center">{ }
+                    Login
                   </Typography>
                 </MenuItem>
-              ))}
-              <MenuItem onClick={handleCloseUserMenu} className="color-nav">
-                <Typography textAlign="center">{ }
-                  <Link style={{ textDecoration: "none", color: "white" }} to='/login'>
-                    Login
-                  </Link>
-                </Typography>
-              </MenuItem>
+              </Link>
             </Menu>
           </Box>
         </Toolbar>

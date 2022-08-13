@@ -5,7 +5,7 @@ import "../styles/Home.css";
 function AddDessert() {
   function fetchAdd(e, params) {
     e.preventDefault();
-    fetch("https://immense-garden-31850.herokuapp.com/desserts", {
+    fetch("https://desolate-taiga-53492.herokuapp.com/desserts", {
       method: "POST",
       body: JSON.stringify(params),
       headers: {
@@ -15,6 +15,7 @@ function AddDessert() {
   }
   return (
     <div>
+      <h1>Add Dessert</h1>
       <FormDesserts fetchRequest={fetchAdd}/>;
     </div>
   )

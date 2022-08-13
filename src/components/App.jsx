@@ -15,20 +15,26 @@ import Container from '@mui/material/Container';
 
 
 function App() {
+
   const [adminLogged, setAdminLogged] = useState(false);
   const [desserts, setDesserts] = useState([]);
   const [dessertsInCart, setDessertsInCart] = useState([]);
-  function handleDessertInCart(dessert) {
-    if (!dessertsInCart.includes(dessert)) {
+
+  const handleDessertInCart = (dessert) => {
+    if (dessertsInCart.some(d => d.id === dessert.id)) {
+      window.alert(`${dessert.name} is already in the cart`);
+    }
+    else {
       setDessertsInCart([
         ...dessertsInCart,
         dessert
       ])
+      window.alert(`${dessert.name} has been added to the cart`);
     }
-
   }
+
   function handleDeleteDessertInCart(dessertsToRemove) {
-    setDessertsInCart(dessertsInCart.filter(dessert => dessert.id === dessertsToRemove))
+    setDessertsInCart(dessertsInCart.filter(dessert => dessert.id !== dessertsToRemove.id))
   }
   return (
     <div className="App background">
@@ -41,7 +47,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route
             path="/desserts"
-            element={<Desserts desserts={desserts} handleDessertInCart={handleDessertInCart} setDesserts={setDesserts} dessertsInCart={dessertsInCart} setDessertsInCart={setDessertsInCart} />}
+            element={<Desserts desserts={desserts} handleDessertInCart={handleDessertInCart} setDesserts={setDesserts} setDessertsInCart={setDessertsInCart} />}
           />
           <Route
             path="/login"
