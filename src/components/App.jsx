@@ -17,7 +17,19 @@ import Container from '@mui/material/Container';
 function App() {
   const [adminLogged, setAdminLogged] = useState(false);
   const [desserts, setDesserts] = useState([]);
+  const [dessertsInCart, setDessertsInCart] = useState([]);
+  function handleDessertInCart(dessert) {
+    if (!dessertsInCart.includes(dessert)) {
+      setDessertsInCart([
+        ...dessertsInCart,
+        dessert
+      ])
+    }
 
+  }
+  function handleDeleteDessertInCart(dessertsToRemove) {
+    setDessertsInCart(dessertsInCart.filter(dessert => dessert.id === dessertsToRemove))
+  }
   return (
     <div className="App background">
       <TopNavbar adminLogged={adminLogged} setAdminLogged={setAdminLogged} />
@@ -29,7 +41,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route
             path="/desserts"
-            element={<Desserts desserts={desserts} setDesserts={setDesserts} />}
+            element={<Desserts desserts={desserts} handleDessertInCart={handleDessertInCart} setDesserts={setDesserts} dessertsInCart={dessertsInCart} setDessertsInCart={setDessertsInCart} />}
           />
           <Route
             path="/login"
@@ -39,7 +51,7 @@ function App() {
           />
           <Route
             path="/addDessert"
-            element={<AddDessert/>} />
+            element={<AddDessert />} />
           <Route
             path="/deleteDessert"
             element={<DeleteDessert desserts={desserts} />}
@@ -49,9 +61,8 @@ function App() {
             element={<UpdateDessert desserts={desserts} />}
           />
           <Route
-
             path="/cart"
-            element={<Cart />}
+            element={<Cart desserts={dessertsInCart} handleDeleteDessertInCart={handleDeleteDessertInCart} />}
           />
         </Routes>
       </Container>

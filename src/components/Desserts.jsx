@@ -7,7 +7,7 @@ import "../styles/Desserts.css";
 
 
 
-export default function Desserts({ desserts, setDesserts }) {
+export default function Desserts({ desserts, setDesserts, handleDessertInCart, dessertsInCart }) {
     useEffect(() => {
         fetch("https://desolate-taiga-53492.herokuapp.com/desserts")
             .then((res) => res.json())
@@ -18,7 +18,7 @@ export default function Desserts({ desserts, setDesserts }) {
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {desserts.map((dessert) => (
                     <Grid item xs={12} md={6} lg={4} key={dessert.id}>
-                        <Dessert key={dessert.id} dessert={dessert} />
+                        <Dessert key={dessert.id} dessert={dessert} handleDessertInCart={handleDessertInCart} dessertsInCart={dessertsInCart}/>
                     </Grid>
                 ))}
             </Grid>

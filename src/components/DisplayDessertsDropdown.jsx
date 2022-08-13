@@ -13,7 +13,6 @@ function DisplayDessertsDropdown({ desserts, fetchRequest }) {
   const navigate = useNavigate();
   const [selectedDessert, setSelectedDessert] = useState([]);
   function handleDessert(event) {
-    console.log(selectedDessert[0])
     setSelectedDessert(
       desserts.filter((dessert) => dessert.name === event.target.value.name)
     );

@@ -24,12 +24,16 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Dessert({ dessert }) {
+export default function Dessert({ dessert, handleDessertInCart, dessertsInCart }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+    const handleClick = (event) =>{
+        handleDessertInCart(dessert)
+        console.log(dessertsInCart)
+    }
 
     return (
         <Card sx={{ maxWidth: 345, maxHeight: 650 }} className="card-style">
@@ -51,7 +55,7 @@ export default function Dessert({ dessert }) {
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to cart">
+                <IconButton aria-label="add to cart" onClick={handleClick}>
                     <AddShoppingCartIcon fontSize='large' />
                 </IconButton>
                 <ExpandMore
@@ -78,7 +82,6 @@ export default function Dessert({ dessert }) {
                         <span>Carbohydrates: {dessert.carbohydrates} g</span> <br />
                         <span>Proteins: {dessert.proteins} g</span> <br />
                         <span>Fat: {dessert.fat} g</span> <br />
-                        {console.log(dessert)}
                     </Typography>
                 </CardContent>
             </Collapse>
