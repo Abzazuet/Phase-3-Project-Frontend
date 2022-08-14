@@ -5,7 +5,7 @@ import "../styles/Home.css";
 function AddDessert() {
   function fetchAdd(e, params) {
     e.preventDefault();
-    fetch("https://desolate-taiga-53492.herokuapp.com/desserts", {
+    fetch("http://localhost:9292/desserts", {
       method: "POST",
       body: JSON.stringify(params),
       headers: {

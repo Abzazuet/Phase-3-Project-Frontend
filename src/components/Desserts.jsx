@@ -9,7 +9,7 @@ import "../styles/Desserts.css";
 
 export default function Desserts({ desserts, setDesserts, handleDessertInCart }) {
     useEffect(() => {
-        fetch("https://desolate-taiga-53492.herokuapp.com/desserts")
+        fetch("http://localhost:9292/desserts")
             .then((res) => res.json())
             .then((data) => setDesserts(data));
     }, [setDesserts]);

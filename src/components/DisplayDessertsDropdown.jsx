@@ -17,20 +17,20 @@ function DisplayDessertsDropdown({ desserts, fetchRequest }) {
       desserts.filter((dessert) => dessert.name === event.target.value.name)
     );
   }
-  let requestType = fetchRequest === "update" ? "PUT" : "DELETE";
+  let requestType = fetchRequest === "update" ? "PATCH" : "DELETE";
   function fetchFunction(e, params) {
     e.preventDefault();
     fetch(
-      `https://desolate-taiga-53492.herokuapp.com/desserts/${selectedDessert[0].id}`,
+      `http://localhost:9292/desserts/${selectedDessert[0].id}`,
       {
         method: requestType,
         body: JSON.stringify(params),
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", 
         },
       }
     ).then((response) => {
-      window.alert(`Dessert ${requestType === "PUT" ? "updated" : "deleted"}`);
+      window.alert(`Dessert ${requestType === "PATCH" ? "updated" : "deleted"}`);
       navigate("/desserts");
     });
   }

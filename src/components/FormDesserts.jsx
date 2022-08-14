@@ -48,7 +48,6 @@ function FormDessert({ selectedDessert, fetchRequest }) {
         }
     }
     function handleCheckBox(event) {
-        console.log(params)
         if (!regimes.includes(event.target.name)) {
             setRegimes([...regimes, event.target.name]);
             setParams({

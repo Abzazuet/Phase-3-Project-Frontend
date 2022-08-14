@@ -89,8 +89,8 @@ const TopNavbar = () => {
               }}
             >
               {pagesRoutes.map((page) => (
-                <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`} >
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Link key={page} style={{ textDecoration: "none", color: "white" }} to={`/${page}`} >
+                  <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
                       {page.toUpperCase()}
                     </Typography>
@@ -120,9 +120,8 @@ const TopNavbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pagesRoutes.map((page) => (
-              <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+              <Link key={page} style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
                 <Button
-                  key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
@@ -155,8 +154,8 @@ const TopNavbar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <Link style={{ textDecoration: "none", color: "white" }} to={`/${setting.toLowerCase()}Dessert`}>
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <Link key={setting} style={{ textDecoration: "none", color: "white" }} to={`/${setting.toLowerCase()}Dessert`}>
+                  <MenuItem onClick={handleCloseUserMenu}>
                     <Typography textAlign="center">{setting}
                       <span> Dessert</span>
                     </Typography>

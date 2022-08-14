@@ -12,13 +12,18 @@ import { useState } from "react";
 import "../styles/App.css";
 import { CssBaseline } from "@mui/material";
 import Container from '@mui/material/Container';
+import { useEffect } from "react";
 
 
 function App() {
-
   const [adminLogged, setAdminLogged] = useState(false);
   const [desserts, setDesserts] = useState([]);
   const [dessertsInCart, setDessertsInCart] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:9292/desserts")
+      .then((res) => res.json())
+      .then((data) => setDesserts(data));
+  }, [setDesserts]);
 
   const handleDessertInCart = (dessert) => {
     if (dessertsInCart.some(d => d.id === dessert.id)) {
