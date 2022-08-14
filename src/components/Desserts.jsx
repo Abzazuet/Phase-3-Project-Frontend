@@ -9,7 +9,7 @@ import "../styles/Desserts.css";
 
 export default function Desserts({ desserts, setDesserts, handleDessertInCart }) {
     useEffect(() => {
-        fetch("http://localhost:9292/desserts")
+        fetch("https://desserts-db.herokuapp.com/desserts")
             .then((res) => res.json())
             .then((data) => setDesserts(data));
     }, [setDesserts]);

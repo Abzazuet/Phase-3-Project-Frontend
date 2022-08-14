@@ -21,7 +21,7 @@ function DisplayDessertsDropdown({ desserts, fetchRequest }) {
   function fetchFunction(e, params) {
     e.preventDefault();
     fetch(
-      `http://localhost:9292/desserts/${selectedDessert[0].id}`,
+      `https://desserts-db.herokuapp.com/desserts/${selectedDessert[0].id}`,
       {
         method: requestType,
         body: JSON.stringify(params),
