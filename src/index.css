@@ -55,9 +55,9 @@ img {
 .MuiPaper-root {
   background-color: var(--navBackground) !important;
 }
-a:hover {
-  color: black;
-}
 .MuiButton-root:hover {
   background-color: #351b0d !important;
+}
+a:hover{
+  color: #351b0d !important;
 }

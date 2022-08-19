@@ -1,4 +1,5 @@
 import TopNavbar from "./TopNavbar";
+import Contact from "./Contact";
 import Home from "./Home";
 import Desserts from "./Desserts";
 import AddDessert from "./AddDessert";
@@ -74,6 +75,10 @@ function App() {
           <Route
             path="/cart"
             element={<Cart desserts={dessertsInCart} handleDeleteDessertInCart={handleDeleteDessertInCart} />}
+          />
+          <Route
+            path="/contact"
+            element={<Contact />}
           />
         </Routes>
       </Container>
