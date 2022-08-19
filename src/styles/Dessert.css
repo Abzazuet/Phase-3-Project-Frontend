@@ -1,13 +1,15 @@
 .card-style {
-  margin: .5rem auto !important;
+  margin: 0.5rem auto !important;
   border-radius: 1rem !important;
-  background: rgb(216, 59, 216);
+  background: rgb(143, 118, 97);
   background: linear-gradient(
-    104deg,
-    rgba(216, 59, 216, 1) 0%,
-    #e5989b 100%
-  ) !important;
-  box-shadow: .5rem 0 1rem #000 !important;
+    90deg,
+    rgba(143, 118, 97, 1) 0%,
+    rgba(125, 101, 80, 1) 43%,
+    rgb(126, 95, 70) 99%
+  );
+  
+  box-shadow: 0.5rem 0 1rem #000 !important;
   transition: 0.4s ease-out !important;
 }
 .card-style:hover {
@@ -15,6 +17,7 @@
 }
 .card-style img {
   margin: 10px auto !important;
+  margin-top: 0px !important;
 }
 .subtitle {
   color: white;
@@ -23,9 +26,9 @@
   background-color: var(--navBackground);
   border: none;
 }
-.MuiCollapse-root{
-  transform:  translateY(-15%);
+.MuiCollapse-root {
+  transform: translateY(-15%);
 }
-.MuiCardActions-root{
-  transform:  translateY(-15%);
+.MuiCardActions-root {
+  transform: translateY(-15%);
 }

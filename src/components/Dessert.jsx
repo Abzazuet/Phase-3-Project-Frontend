@@ -35,13 +35,11 @@ export default function Dessert({ dessert, handleDessertInCart }) {
     }
 
     return (
-        <Card sx={{ maxWidth: 345, maxHeight: 650 }} className="card-style">
-            <CardHeader
-                title={dessert.name}
-            />
+        <Card sx={{ maxWidth: 500, maxHeight: 850 }} className="card-style">
+
             <CardMedia
                 component="img"
-                height="194"
+                height="350"
                 image={dessert.image}
                 alt={dessert.name}
             />

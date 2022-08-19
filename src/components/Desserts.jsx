@@ -17,7 +17,7 @@ export default function Desserts({ desserts, setDesserts, handleDessertInCart })
         <Box sx={{ width: '100%' }}>
             <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 {desserts.map((dessert) => (
-                    <Grid item xs={12} md={6} lg={4} key={dessert.id}>
+                    <Grid item xs={12} md={6} lg={6} key={dessert.id}>
                         <Dessert key={dessert.id} dessert={dessert} handleDessertInCart={handleDessertInCart}/>
                     </Grid>
                 ))}

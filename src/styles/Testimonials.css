@@ -1,9 +1,15 @@
-.background-fix{
-    background: linear-gradient(0deg, rgba(0 0 0 / 0.5), rgba(255 0 150 / 69%));
-    width: 100%;
-    height: auto;
-    position: relative;
-    left: 0;
-    bottom: 10rem;
-    border-radius: 1rem;
+.background-fix {
+  background: rgb(143, 118, 97);
+  background: linear-gradient(
+    90deg,
+    rgba(143, 118, 97, 1) 0%,
+    rgba(125, 101, 80, 1) 43%,
+    rgb(126, 95, 70) 99%
+  );
+  width: 100%;
+  height: auto;
+  position: relative;
+  left: 0rem !important;
+  bottom: 10rem;
+  border-radius: 1rem;
 }
